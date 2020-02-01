@@ -1,0 +1,203 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Public/Lab2
+vadder
+Z0 !s110 1580319792
+!i10b 1
+!s100 e>OF6bX2nX[d`7kzQj^WP2
+I2PT_iRj]]J]9o0FlQC_`o2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/Public/Lab3
+Z3 w1580077185
+Z4 8adder4bitFPGA.v
+Z5 Fadder4bitFPGA.v
+L0 61
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1580319792.000000
+Z8 !s107 adder4bitFPGA.v|hex_decoder.v|ALU_FPGA.v|
+Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|ALU_FPGA.v|
+!i113 1
+Z10 o-timescale 1ns/1ns
+Z11 tCvgOpt 0
+vadder4bit
+R0
+!i10b 1
+!s100 16SGHX[_K:gc[QDADi0PW0
+IUn8Ifm]2Di;Ydka20^jZi1
+R1
+R2
+R3
+R4
+R5
+L0 16
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vadder4bitFPGA
+R0
+!i10b 1
+!s100 2Z2d^2P1PcGck?0Vdmg[O3
+I2QQfjlLNOobMc]e1D97i10
+R1
+R2
+R3
+R4
+R5
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+nadder4bit@f@p@g@a
+vALU
+R0
+!i10b 1
+!s100 Xe7n5IK4JCP1WU>1`RKd`2
+IY5IKFbhM]JbQjF7g5[UaA1
+R1
+R2
+Z12 w1580319734
+Z13 8ALU_FPGA.v
+Z14 FALU_FPGA.v
+L0 28
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@a@l@u
+vALU_FPGA
+R0
+!i10b 1
+!s100 =?O1d^]X0a47USegW5IVV2
+IFT<73[ccF1@1beU8g2[Y52
+R1
+R2
+R12
+R13
+R14
+L0 5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@a@l@u_@f@p@g@a
+vdecoder
+R0
+!i10b 1
+!s100 2S63ZX1Mng4TGc7[V:02A0
+I>0:GjegzBHl@d[V]=ZYKn0
+R1
+R2
+Z15 w1580083278
+Z16 8hex_decoder.v
+Z17 Fhex_decoder.v
+L0 14
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vhex_decoder
+R0
+!i10b 1
+!s100 WGe0@[HN4gZ1`IP[m]dZ@3
+IM9FTT65gBQQ753U4oj;3T1
+R1
+R2
+R15
+R16
+R17
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vmux7to1
+Z18 !s110 1580056538
+!i10b 1
+!s100 KY7k6H[KhfTkh8`IFQg][2
+IhV`4^YSI`WIQS[UIYF=F82
+R1
+R2
+Z19 w1580055653
+Z20 8mux7to1FPGA.v
+Z21 Fmux7to1FPGA.v
+L0 13
+R6
+r1
+!s85 0
+31
+Z22 !s108 1580056538.000000
+Z23 !s107 mux7to1FPGA.v|
+Z24 !s90 -reportprogress|300|-timescale|1ns/1ns|mux7to1FPGA.v|
+!i113 1
+R10
+R11
+vmux7to1FPGA
+R18
+!i10b 1
+!s100 NfK`2h2[PmfaY==b4:Co73
+I5]ncV1XV1j;iNE;<M>P7W1
+R1
+R2
+R19
+R20
+R21
+L0 1
+R6
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 1
+R10
+R11
+nmux7to1@f@p@g@a

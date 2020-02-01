@@ -1,0 +1,136 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Zenghao Wang/Google Drive/UofT/CSC258
+vdecoder
+Z0 !s110 1579714476
+!i10b 1
+!s100 N@m_46UV_?Jj:L=[1WgLd2
+IZH0hKdQ<Ean_VHlRA9QhU3
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/Public/Lab2
+Z3 w1579714472
+Z4 8hex_decoder.v
+Z5 Fhex_decoder.v
+Z6 L0 14
+Z7 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z8 !s108 1579714476.000000
+Z9 !s107 hex_decoder.v|
+Z10 !s90 -reportprogress|300|-timescale|1ns/1ns|hex_decoder.v|
+!i113 1
+Z11 o-timescale 1ns/1ns
+Z12 tCvgOpt 0
+vfoo
+!s110 1579714227
+!i10b 1
+!s100 l;iGnDm4U=SOM5[hPUU7J1
+I;IB3CYoB8G95FHXh;DPS`1
+R1
+R2
+w1579714216
+8decoder.v
+Fdecoder.v
+R6
+R7
+r1
+!s85 0
+31
+!s108 1579714227.000000
+!s107 decoder.v|
+!s90 -reportprogress|300|-timescale|1ns/1ns|decoder.v|
+!i113 1
+R11
+R12
+vhex_decoder
+R0
+!i10b 1
+!s100 WGe0@[HN4gZ1`IP[m]dZ@3
+IM9FTT65gBQQ753U4oj;3T1
+R1
+R2
+R3
+R4
+R5
+L0 1
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
+vmux
+Z13 !s110 1579626175
+!i10b 1
+!s100 9ANUC9bk91n5UR=`oE;MV0
+Im]znzb`HS9gDQeM>4^6`K1
+R1
+R2
+Z14 w1579550794
+Z15 8mux.v
+Z16 Fmux.v
+R6
+R7
+r1
+!s85 0
+31
+Z17 !s108 1579626175.000000
+Z18 !s107 mux.v|
+Z19 !s90 -reportprogress|300|-timescale|1ns/1ns|mux.v|
+!i113 1
+R11
+R12
+vmux2to1
+R13
+!i10b 1
+!s100 zmAO;W^1NDPcK>:XV6Ea`2
+IZTXnL;PX:jPfGTPeVNnZN0
+R1
+R2
+R14
+R15
+R16
+L0 50
+R7
+r1
+!s85 0
+31
+R17
+R18
+R19
+!i113 1
+R11
+R12
+vmux4to1
+!s110 1579549710
+!i10b 1
+!s100 ^eZJ?X[RY68C]_CJV@@=S1
+I;ljYLM?0f>^aF@9P>DmTL0
+R1
+R2
+w1579549691
+R15
+R16
+R6
+R7
+r1
+!s85 0
+31
+!s108 1579549710.000000
+R18
+R19
+!i113 1
+R11
+R12
