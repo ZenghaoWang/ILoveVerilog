@@ -1,4 +1,64 @@
+// Wrapper module that connects the ALU and 8-bit register to an FPGA board
+module ALU_FPGA(
+    LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, SW, KEY)
 
+    input [9:0] SW;
+    input [0] KEY;
+    output [7:0] LEDR;
+    output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
+
+    wire [7:0] out;
+    wire [3:0] least_sig, most_sig;
+
+    // Display value of A in hexadecimal
+    decoder dA(
+        .c(SW[3:0]),
+        .segment(HEX0)
+    );
+
+    // The ALU does its thing and 
+    ALU alu(
+        .A(SW[3:0]),
+        .B(least_sig),
+        .fun(SW[7:5]),
+        .ALUout(out)
+    );
+
+    // Transfers the output to the register, which sends the 4 least-sig
+    // digits back into the ALU as input B
+    register_8bit register(
+        .d(out),
+        .clock(KEY[0]),
+        .reset_n(SW[9]),
+        .q({most_sig, least_sig})
+    );
+
+    // Display output on LEDs
+    assign LEDR[7:0] = {most_sig, least_sig};
+
+
+    assign HEX1, HEX2, HEX3 = {7{1'b1}} // Active low; display nothing
+
+    // Output the 4 least and 4 most sig digits to hex 4 and 5 respectively
+    decoder virgin(
+        .c(least_sig),
+        .segment(HEX4)
+    );
+
+    decoder chad(
+        .c(most_sig),
+        .segment(HEX5)
+    );
+
+endmodule // ALU_FPGA
+
+    
+
+
+    
+
+
+// Stores output of ALU
 module register_8bit(
     q, d, clock, reset_n);
 
@@ -13,23 +73,17 @@ module register_8bit(
         else //Store the value of the input in the output
             q <= d;
     end
-
-    
-
-
 endmodule // register_8bit
 
-// TODO: Modify for Lab 4
-module ALU(
-    A, B, fun, ALUout, 
-    hex_zero1, hex_zero2, hex_A, hex_B, hex_out_30, hex_out_74);
+// ALU with 8 functions
+module ALU(A, B, fun, ALUout);
     input [3:0] A, B;
     input [2:0] fun;
     output [7:0] ALUout;
-    output [6:0] hex_zero1, hex_zero2, hex_A, hex_B, hex_out_30, hex_out_74;
+
 
     wire [7:0] fun0_output, fun1_output, fun2_output, fun3_output, 
-        fun4_output, fun5_output,  fun6_output, fun7_output;
+        fun4_output, fun5_output, fun6_output, fun7_output;
 
     // Increment A by 1
     adder4bit fun0(
@@ -85,40 +139,5 @@ module ALU(
             default: ALUout = {8{1'b0}}; //Default: output 0s
         endcase
     end
-
-
-    // Output a hex display 0
-    wire [6:0] zero;
-    decoder d0(
-        .c({4{1'b0}}),
-        .segment(zero)
-    );
-    assign hex_zero1 = zero;
-    assign hex_zero2 = zero;
-
-
-    // Output a hex display A
-    decoder dA(
-        .c(A),
-        .segment(hex_A)
-    );
    
-
-    // Hex display B
-    decoder dB(
-        .c(B),
-        .segment(hex_B)
-    );
-
-    //Hex display ALUout[3:0]
-    decoder d30(
-        .c(ALUout[3:0]),
-        .segment(hex_out_30)
-    );
-
-    //Hex display ALUout[7:4]
-    decoder d74(
-        .c(ALUout[7:4]),
-        .segment(hex_out_74)
-    );
 endmodule // ALU
