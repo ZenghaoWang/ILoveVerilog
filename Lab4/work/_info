@@ -1,0 +1,265 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Public/CSC258_Lab_Code/Lab4
+vadder
+Z1 !s110 1580672571
+!i10b 1
+!s100 Wz9zXGHS<k72kX1;b81JR3
+I[BidC8_FCOn9DkHTc0l3T1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1580668273
+Z4 8adder4bit.v
+Z5 Fadder4bit.v
+L0 47
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1580672571.000000
+Z8 !s107 adder4bit.v|decoder.v|ALU_FPGA.v|
+Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|ALU_FPGA.v|decoder.v|adder4bit.v|
+!i113 1
+Z10 o-timescale 1ns/1ns
+Z11 tCvgOpt 0
+vadder4bit
+R1
+!i10b 1
+!s100 320e^XFn<4Bn_`^i=@:Va3
+InVdDQGmn[^jn=zf<;ZhLL1
+R2
+R0
+R3
+R4
+R5
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vALU
+R1
+!i10b 1
+!s100 b`Og3fR_b8;8O@e]<cY;k2
+I>oN8ml0U?DSe;8K5GHbXK3
+R2
+R0
+Z12 w1580668004
+Z13 8ALU_FPGA.v
+Z14 FALU_FPGA.v
+L0 82
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@a@l@u
+vALU_FPGA
+R1
+!i10b 1
+!s100 [T5=Q:F2JZMDA_bLZhWjY1
+IaO2Rjd<jo2hlU@Vak]V[F1
+R2
+R0
+R12
+R13
+R14
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@a@l@u_@f@p@g@a
+vdecoder
+R1
+!i10b 1
+!s100 1=44Xde7R43QNfN3TdVGz0
+IHYbGfd3Fz2hOCWiJdImIh2
+R2
+R0
+w1580668293
+8decoder.v
+Fdecoder.v
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vflipflop
+Z15 !s110 1580760336
+!i10b 1
+!s100 4MIRSBG3:D`_IGEIPZh^C0
+IESh>O25o7kQ44C0@YNE152
+R2
+R0
+Z16 w1580760327
+Z17 8shifter_bit.v
+Z18 Fshifter_bit.v
+L0 31
+R6
+r1
+!s85 0
+31
+Z19 !s108 1580760336.000000
+Z20 !s107 mux2to1.v|shifter_bit.v|shifter.v|shifter_FPGA.v|
+Z21 !s90 -reportprogress|300|-timescale|1ns/1ns|shifter_FPGA.v|shifter.v|shifter_bit.v|mux2to1.v|
+!i113 1
+R10
+R11
+vhex_decoder
+!s110 1580668187
+!i10b 1
+!s100 WGe0@[HN4gZ1`IP[m]dZ@3
+IM9FTT65gBQQ753U4oj;3T1
+R2
+R0
+w1580580952
+8hex_decoder.v
+Fhex_decoder.v
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1580668187.000000
+!s107 hex_decoder.v|ALU_FPGA.v|
+!s90 -reportprogress|300|-timescale|1ns/1ns|ALU_FPGA.v|hex_decoder.v|
+!i113 1
+R10
+R11
+vmux2to1
+R15
+!i10b 1
+!s100 aRgQ4nAKoF`maj;[G^SRa2
+I>4HNB4@72PYS_hU@QnjTS0
+R2
+R0
+w1580686979
+8mux2to1.v
+Fmux2to1.v
+L0 1
+R6
+r1
+!s85 0
+31
+R19
+R20
+R21
+!i113 1
+R10
+R11
+vregister_8bit
+R1
+!i10b 1
+!s100 BCWc9i4W^Zj43f8W^LPem2
+Id0F>;Uck>4c<3=IknQQBe1
+R2
+R0
+R12
+R13
+R14
+L0 64
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vshifter
+R15
+!i10b 1
+!s100 R[B@g>@OlWmQT<O^[DIOS1
+IK[iTI46emL9]B<Qo?R<0B1
+R2
+R0
+w1580757893
+8shifter.v
+Fshifter.v
+L0 1
+R6
+r1
+!s85 0
+31
+R19
+R20
+R21
+!i113 1
+R10
+R11
+vshifter_bit
+R15
+!i10b 1
+!s100 EXCZKQVObEec?XYRI3T:>0
+IKH1bL<0SUTnh4N9iiEfRZ1
+R2
+R0
+R16
+R17
+R18
+L0 1
+R6
+r1
+!s85 0
+31
+R19
+R20
+R21
+!i113 1
+R10
+R11
+vshifter_FPGA
+R15
+!i10b 1
+!s100 A0g6PzC>3MRbf4I6jKYAc1
+IW6dUYnKW7M:[n39UOXUVN2
+R2
+R0
+w1580748712
+8shifter_FPGA.v
+Fshifter_FPGA.v
+L0 1
+R6
+r1
+!s85 0
+31
+R19
+R20
+R21
+!i113 1
+R10
+R11
+nshifter_@f@p@g@a

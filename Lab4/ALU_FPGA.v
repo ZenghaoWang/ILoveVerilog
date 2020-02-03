@@ -1,9 +1,9 @@
 // Wrapper module that connects the ALU and 8-bit register to an FPGA board
 module ALU_FPGA(
-    LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, SW, KEY)
+    LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, SW, KEY);
 
     input [9:0] SW;
-    input [0] KEY;
+    input [0:0] KEY;
     output [7:0] LEDR;
     output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 
@@ -37,7 +37,9 @@ module ALU_FPGA(
     assign LEDR[7:0] = {most_sig, least_sig};
 
 
-    assign HEX1, HEX2, HEX3 = {7{1'b1}} // Active low; display nothing
+    assign HEX1 = {7{1'b1}}; // Active low; display nothing
+    assign HEX2 = {7{1'b1}};
+    assign HEX3 = {7{1'b1}};
 
     // Output the 4 least and 4 most sig digits to hex 4 and 5 respectively
     decoder virgin(
@@ -64,12 +66,13 @@ module register_8bit(
 
     input [7:0] d;
     input clock, reset_n;
-    reg output [7:0] q;
+    output [7:0] q;
+    reg [7:0] q;
 
     always @(posedge clock) //Triggered everytime clock rises to 1
     begin
         if (reset_n == 1'b0) //Active low
-            q <= 8'b0000_0000
+            q <= 8'b0000_0000;
         else //Store the value of the input in the output
             q <= d;
     end
