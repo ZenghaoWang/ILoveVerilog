@@ -1,0 +1,313 @@
+|shifter_FPGA
+LEDR[0] << shifter:shitter.Q
+LEDR[1] << shifter:shitter.Q
+LEDR[2] << shifter:shitter.Q
+LEDR[3] << shifter:shitter.Q
+LEDR[4] << shifter:shitter.Q
+LEDR[5] << shifter:shitter.Q
+LEDR[6] << shifter:shitter.Q
+LEDR[7] << shifter:shitter.Q
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+SW[4] => SW[4].IN1
+SW[5] => SW[5].IN1
+SW[6] => SW[6].IN1
+SW[7] => SW[7].IN1
+SW[8] => ~NO_FANOUT~
+SW[9] => SW[9].IN1
+KEY[0] => KEY[0].IN1
+KEY[1] => KEY[1].IN1
+KEY[2] => KEY[2].IN1
+KEY[3] => KEY[3].IN1
+
+
+|shifter_FPGA|shifter:shitter
+Q[0] <= shifter_bit:b0.out
+Q[1] <= w10.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= w21.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= w32.DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= w43.DB_MAX_OUTPUT_PORT_TYPE
+Q[5] <= w54.DB_MAX_OUTPUT_PORT_TYPE
+Q[6] <= w65.DB_MAX_OUTPUT_PORT_TYPE
+Q[7] <= Q[7].DB_MAX_OUTPUT_PORT_TYPE
+LoadVal[0] => LoadVal[0].IN1
+LoadVal[1] => LoadVal[1].IN1
+LoadVal[2] => LoadVal[2].IN1
+LoadVal[3] => LoadVal[3].IN1
+LoadVal[4] => LoadVal[4].IN1
+LoadVal[5] => LoadVal[5].IN1
+LoadVal[6] => LoadVal[6].IN1
+LoadVal[7] => LoadVal[7].IN1
+Load_n => Load_n.IN8
+ShiftRight => ShiftRight.IN8
+ASR => most_sig_digit.OUTPUTSELECT
+clock => clock.IN8
+reset_n => reset_n.IN8
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b7
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+in => in.IN1
+load_val => load_val.IN1
+shift => shift.IN1
+load_n => load_n.IN1
+clock => clock.IN1
+reset_n => reset_n.IN1
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b7|mux2to1:m0
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b7|mux2to1:m1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b7|flipflop:ass
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+d => q.DATAB
+clock => q~reg0.CLK
+reset_n => q.OUTPUTSELECT
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b6
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+in => in.IN1
+load_val => load_val.IN1
+shift => shift.IN1
+load_n => load_n.IN1
+clock => clock.IN1
+reset_n => reset_n.IN1
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b6|mux2to1:m0
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b6|mux2to1:m1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b6|flipflop:ass
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+d => q.DATAB
+clock => q~reg0.CLK
+reset_n => q.OUTPUTSELECT
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b5
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+in => in.IN1
+load_val => load_val.IN1
+shift => shift.IN1
+load_n => load_n.IN1
+clock => clock.IN1
+reset_n => reset_n.IN1
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b5|mux2to1:m0
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b5|mux2to1:m1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b5|flipflop:ass
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+d => q.DATAB
+clock => q~reg0.CLK
+reset_n => q.OUTPUTSELECT
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b4
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+in => in.IN1
+load_val => load_val.IN1
+shift => shift.IN1
+load_n => load_n.IN1
+clock => clock.IN1
+reset_n => reset_n.IN1
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b4|mux2to1:m0
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b4|mux2to1:m1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b4|flipflop:ass
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+d => q.DATAB
+clock => q~reg0.CLK
+reset_n => q.OUTPUTSELECT
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b3
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+in => in.IN1
+load_val => load_val.IN1
+shift => shift.IN1
+load_n => load_n.IN1
+clock => clock.IN1
+reset_n => reset_n.IN1
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b3|mux2to1:m0
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b3|mux2to1:m1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b3|flipflop:ass
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+d => q.DATAB
+clock => q~reg0.CLK
+reset_n => q.OUTPUTSELECT
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b2
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+in => in.IN1
+load_val => load_val.IN1
+shift => shift.IN1
+load_n => load_n.IN1
+clock => clock.IN1
+reset_n => reset_n.IN1
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b2|mux2to1:m0
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b2|mux2to1:m1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b2|flipflop:ass
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+d => q.DATAB
+clock => q~reg0.CLK
+reset_n => q.OUTPUTSELECT
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+in => in.IN1
+load_val => load_val.IN1
+shift => shift.IN1
+load_n => load_n.IN1
+clock => clock.IN1
+reset_n => reset_n.IN1
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b1|mux2to1:m0
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b1|mux2to1:m1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b1|flipflop:ass
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+d => q.DATAB
+clock => q~reg0.CLK
+reset_n => q.OUTPUTSELECT
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+in => in.IN1
+load_val => load_val.IN1
+shift => shift.IN1
+load_n => load_n.IN1
+clock => clock.IN1
+reset_n => reset_n.IN1
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b0|mux2to1:m0
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b0|mux2to1:m1
+x => m.IN0
+y => m.IN0
+s => m.IN1
+s => m.IN1
+m <= m.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shifter_FPGA|shifter:shitter|shifter_bit:b0|flipflop:ass
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+d => q.DATAB
+clock => q~reg0.CLK
+reset_n => q.OUTPUTSELECT
+
+

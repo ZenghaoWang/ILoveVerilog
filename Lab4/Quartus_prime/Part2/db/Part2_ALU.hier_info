@@ -1,0 +1,417 @@
+|ALU_FPGA
+LEDR[0] <= least_sig[0].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= least_sig[1].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= least_sig[2].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= least_sig[3].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[4] <= most_sig[0].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[5] <= most_sig[1].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[6] <= most_sig[2].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[7] <= most_sig[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[0] <= decoder:dA.segment
+HEX0[1] <= decoder:dA.segment
+HEX0[2] <= decoder:dA.segment
+HEX0[3] <= decoder:dA.segment
+HEX0[4] <= decoder:dA.segment
+HEX0[5] <= decoder:dA.segment
+HEX0[6] <= decoder:dA.segment
+HEX1[0] <= <VCC>
+HEX1[1] <= <VCC>
+HEX1[2] <= <VCC>
+HEX1[3] <= <VCC>
+HEX1[4] <= <VCC>
+HEX1[5] <= <VCC>
+HEX1[6] <= <VCC>
+HEX2[0] <= <VCC>
+HEX2[1] <= <VCC>
+HEX2[2] <= <VCC>
+HEX2[3] <= <VCC>
+HEX2[4] <= <VCC>
+HEX2[5] <= <VCC>
+HEX2[6] <= <VCC>
+HEX3[0] <= <VCC>
+HEX3[1] <= <VCC>
+HEX3[2] <= <VCC>
+HEX3[3] <= <VCC>
+HEX3[4] <= <VCC>
+HEX3[5] <= <VCC>
+HEX3[6] <= <VCC>
+HEX4[0] <= decoder:virgin.segment
+HEX4[1] <= decoder:virgin.segment
+HEX4[2] <= decoder:virgin.segment
+HEX4[3] <= decoder:virgin.segment
+HEX4[4] <= decoder:virgin.segment
+HEX4[5] <= decoder:virgin.segment
+HEX4[6] <= decoder:virgin.segment
+HEX5[0] <= decoder:chad.segment
+HEX5[1] <= decoder:chad.segment
+HEX5[2] <= decoder:chad.segment
+HEX5[3] <= decoder:chad.segment
+HEX5[4] <= decoder:chad.segment
+HEX5[5] <= decoder:chad.segment
+HEX5[6] <= decoder:chad.segment
+SW[0] => SW[0].IN2
+SW[1] => SW[1].IN2
+SW[2] => SW[2].IN2
+SW[3] => SW[3].IN2
+SW[4] => ~NO_FANOUT~
+SW[5] => SW[5].IN1
+SW[6] => SW[6].IN1
+SW[7] => SW[7].IN1
+SW[8] => ~NO_FANOUT~
+SW[9] => SW[9].IN1
+KEY[0] => KEY[0].IN1
+
+
+|ALU_FPGA|decoder:dA
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN0
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[1] => segment.IN0
+c[1] => segment.IN1
+c[1] => segment.IN0
+c[1] => segment.IN1
+c[1] => segment.IN1
+c[1] => segment.IN0
+c[1] => segment.IN1
+c[1] => segment.IN1
+c[1] => segment.IN1
+c[1] => segment.IN0
+c[1] => segment.IN1
+c[2] => segment.IN1
+c[2] => segment.IN0
+c[2] => segment.IN0
+c[2] => segment.IN0
+c[2] => segment.IN1
+c[2] => segment.IN0
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+segment[0] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[1] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[2] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[3] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[4] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[5] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[6] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU_FPGA|ALU:alu
+A[0] => A[0].IN2
+A[1] => A[1].IN2
+A[2] => A[2].IN2
+A[3] => A[3].IN2
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+fun[0] => Mux0.IN6
+fun[0] => Mux1.IN6
+fun[0] => Mux2.IN6
+fun[0] => Mux3.IN4
+fun[0] => Mux4.IN3
+fun[0] => Mux5.IN3
+fun[0] => Mux6.IN3
+fun[0] => Mux7.IN2
+fun[1] => Mux0.IN5
+fun[1] => Mux1.IN5
+fun[1] => Mux2.IN5
+fun[1] => Mux3.IN3
+fun[1] => Mux4.IN2
+fun[1] => Mux5.IN2
+fun[1] => Mux6.IN2
+fun[1] => Mux7.IN1
+fun[2] => Mux0.IN4
+fun[2] => Mux1.IN4
+fun[2] => Mux2.IN4
+fun[2] => Mux3.IN2
+fun[2] => Mux4.IN1
+fun[2] => Mux5.IN1
+fun[2] => Mux6.IN1
+fun[2] => Mux7.IN0
+ALUout[0] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
+ALUout[1] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+ALUout[2] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+ALUout[3] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+ALUout[4] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+ALUout[5] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+ALUout[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+ALUout[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU_FPGA|ALU:alu|adder4bit:fun0
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+cin => cin.IN1
+S[0] <= adder:a0.s
+S[1] <= adder:a1.s
+S[2] <= adder:a2.s
+S[3] <= adder:a3.s
+cout <= adder:a3.cout
+
+
+|ALU_FPGA|ALU:alu|adder4bit:fun0|adder:a0
+a => s.IN0
+a => cout.IN0
+b => s.IN1
+b => cout.IN1
+cin => s.IN1
+cin => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU_FPGA|ALU:alu|adder4bit:fun0|adder:a1
+a => s.IN0
+a => cout.IN0
+b => s.IN1
+b => cout.IN1
+cin => s.IN1
+cin => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU_FPGA|ALU:alu|adder4bit:fun0|adder:a2
+a => s.IN0
+a => cout.IN0
+b => s.IN1
+b => cout.IN1
+cin => s.IN1
+cin => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU_FPGA|ALU:alu|adder4bit:fun0|adder:a3
+a => s.IN0
+a => cout.IN0
+b => s.IN1
+b => cout.IN1
+cin => s.IN1
+cin => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU_FPGA|ALU:alu|adder4bit:fun1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+cin => cin.IN1
+S[0] <= adder:a0.s
+S[1] <= adder:a1.s
+S[2] <= adder:a2.s
+S[3] <= adder:a3.s
+cout <= adder:a3.cout
+
+
+|ALU_FPGA|ALU:alu|adder4bit:fun1|adder:a0
+a => s.IN0
+a => cout.IN0
+b => s.IN1
+b => cout.IN1
+cin => s.IN1
+cin => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU_FPGA|ALU:alu|adder4bit:fun1|adder:a1
+a => s.IN0
+a => cout.IN0
+b => s.IN1
+b => cout.IN1
+cin => s.IN1
+cin => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU_FPGA|ALU:alu|adder4bit:fun1|adder:a2
+a => s.IN0
+a => cout.IN0
+b => s.IN1
+b => cout.IN1
+cin => s.IN1
+cin => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU_FPGA|ALU:alu|adder4bit:fun1|adder:a3
+a => s.IN0
+a => cout.IN0
+b => s.IN1
+b => cout.IN1
+cin => s.IN1
+cin => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU_FPGA|register_8bit:register
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+d[0] => q.DATAA
+d[1] => q.DATAA
+d[2] => q.DATAA
+d[3] => q.DATAA
+d[4] => q.DATAA
+d[5] => q.DATAA
+d[6] => q.DATAA
+d[7] => q.DATAA
+clock => q[0]~reg0.CLK
+clock => q[1]~reg0.CLK
+clock => q[2]~reg0.CLK
+clock => q[3]~reg0.CLK
+clock => q[4]~reg0.CLK
+clock => q[5]~reg0.CLK
+clock => q[6]~reg0.CLK
+clock => q[7]~reg0.CLK
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+reset_n => q.OUTPUTSELECT
+
+
+|ALU_FPGA|decoder:virgin
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN0
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[1] => segment.IN0
+c[1] => segment.IN1
+c[1] => segment.IN0
+c[1] => segment.IN1
+c[1] => segment.IN1
+c[1] => segment.IN0
+c[1] => segment.IN1
+c[1] => segment.IN1
+c[1] => segment.IN1
+c[1] => segment.IN0
+c[1] => segment.IN1
+c[2] => segment.IN1
+c[2] => segment.IN0
+c[2] => segment.IN0
+c[2] => segment.IN0
+c[2] => segment.IN1
+c[2] => segment.IN0
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+segment[0] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[1] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[2] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[3] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[4] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[5] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[6] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU_FPGA|decoder:chad
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN0
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[0] => segment.IN1
+c[1] => segment.IN0
+c[1] => segment.IN1
+c[1] => segment.IN0
+c[1] => segment.IN1
+c[1] => segment.IN1
+c[1] => segment.IN0
+c[1] => segment.IN1
+c[1] => segment.IN1
+c[1] => segment.IN1
+c[1] => segment.IN0
+c[1] => segment.IN1
+c[2] => segment.IN1
+c[2] => segment.IN0
+c[2] => segment.IN0
+c[2] => segment.IN0
+c[2] => segment.IN1
+c[2] => segment.IN0
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+c[3] => segment.IN1
+segment[0] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[1] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[2] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[3] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[4] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[5] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+segment[6] <= segment.DB_MAX_OUTPUT_PORT_TYPE
+
+
