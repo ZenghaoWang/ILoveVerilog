@@ -116,7 +116,7 @@ R9
 R10
 R11
 vflipflop
-Z15 !s110 1580760336
+Z15 !s110 1580790764
 !i10b 1
 !s100 4MIRSBG3:D`_IGEIPZh^C0
 IESh>O25o7kQ44C0@YNE152
@@ -130,7 +130,7 @@ R6
 r1
 !s85 0
 31
-Z19 !s108 1580760336.000000
+Z19 !s108 1580790763.000000
 Z20 !s107 mux2to1.v|shifter_bit.v|shifter.v|shifter_FPGA.v|
 Z21 !s90 -reportprogress|300|-timescale|1ns/1ns|shifter_FPGA.v|shifter.v|shifter_bit.v|mux2to1.v|
 !i113 1
