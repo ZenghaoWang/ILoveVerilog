@@ -1,0 +1,10 @@
+
+State Machine - |sequence_detector|current_state
+Name current_state.G current_state.F current_state.E current_state.D current_state.C current_state.B current_state.A 
+current_state.A 0 0 0 0 0 0 0 
+current_state.B 0 0 0 0 0 1 1 
+current_state.C 0 0 0 0 1 0 1 
+current_state.D 0 0 0 1 0 0 1 
+current_state.E 0 0 1 0 0 0 1 
+current_state.F 0 1 0 0 0 0 1 
+current_state.G 1 0 0 0 0 0 1 
