@@ -1,7 +1,7 @@
 //Sw[7:0] data_in
 
 //KEY[0] synchronous reset when pressed
-//KEY[1] go signal
+//KEY[1] go signal when pressed
 
 //LEDR displays result
 //HEX0 & HEX1 also displays result
@@ -47,7 +47,7 @@ module poly_function_FPGA(SW, KEY, CLOCK_50, LEDR, HEX0, HEX1);
         .segments(HEX1)
         );
 
-endmodule
+endmodule // poly_function_FPGA
 
 module poly_function(
     input clk,
@@ -59,8 +59,8 @@ module poly_function(
 
     // lots of wires to connect data_path and control_path
 
-    wire ld_a, ld_b, ld_c, ld_x, ld_r;
-    wire ld_alu_out;
+    wire load_a, load_b, load_c, load_x, load_r;
+    wire load_alu_out;
     wire [1:0]  alu_select_a, alu_select_b;
     wire alu_op;
 
@@ -73,12 +73,12 @@ module poly_function(
         .go(go),
         
         // Outputs to data path
-        .ld_alu_out(ld_alu_out), 
-        .ld_x(ld_x),
-        .ld_a(ld_a),
-        .ld_b(ld_b),
-        .ld_c(ld_c), 
-        .ld_r(ld_r), 
+        .load_alu_out(load_alu_out), 
+        .load_x(load_x),
+        .load_a(load_a),
+        .load_b(load_b),
+        .load_c(load_c), 
+        .load_r(load_r), 
         
         .alu_select_a(alu_select_a),
         .alu_select_b(alu_select_b),
@@ -89,24 +89,24 @@ module poly_function(
         .clk(clk),
         .resetn(resetn),
 
-        .ld_alu_out(ld_alu_out), 
-        .ld_x(ld_x),
-        .ld_a(ld_a),
-        .ld_b(ld_b),
-        .ld_c(ld_c), 
-        .ld_r(ld_r), 
+        .load_alu_out(load_alu_out), 
+        .load_x(load_x),
+        .load_a(load_a),
+        .load_b(load_b),
+        .load_c(load_c), 
+        .load_r(load_r), 
 
         .alu_select_a(alu_select_a),
         .alu_select_b(alu_select_b),
         .alu_op(alu_op),
 
         .data_in(data_in),
-        
+
         // Output
         .data_result(data_result)
     );
                 
- endmodule        
+ endmodule // poly_function       
                 
 
 module control_path(
@@ -114,8 +114,8 @@ module control_path(
     input resetn,
     input go,
 
-    output reg  ld_a, ld_b, ld_c, ld_x, ld_r,
-    output reg  ld_alu_out,
+    output reg  load_a, load_b, load_c, load_x, load_r,
+    output reg  load_alu_out,
     output reg [1:0]  alu_select_a, alu_select_b,
     output reg alu_op
     );
@@ -133,6 +133,7 @@ module control_path(
                 S_CYCLE_0       = 4'd8,
                 S_CYCLE_1       = 4'd9,
                 S_CYCLE_2       = 4'd10;
+                // TODO: Add more states
     
     // Next state logic aka our state table
     always@(*)
@@ -146,6 +147,7 @@ module control_path(
                 S_LOAD_C_WAIT: next_state = go ? S_LOAD_C_WAIT : S_LOAD_X; // Loop in current state until go signal goes low
                 S_LOAD_X: next_state = go ? S_LOAD_X_WAIT : S_LOAD_X; // Loop in current state until value is input
                 S_LOAD_X_WAIT: next_state = go ? S_LOAD_X_WAIT : S_CYCLE_0; // Loop in current state until go signal goes low
+                // TODO: Update this
                 S_CYCLE_0: next_state = S_CYCLE_1;
                 S_CYCLE_1: next_state = S_LOAD_A; // we will be done our two operations, start over after
             default:     next_state = S_LOAD_A;
@@ -157,37 +159,38 @@ module control_path(
     always @(*)
     begin: enable_signals
         // By default make all our signals 0
-        ld_alu_out = 1'b0;
-        ld_a = 1'b0;
-        ld_b = 1'b0;
-        ld_c = 1'b0;
-        ld_x = 1'b0;
-        ld_r = 1'b0;
-        alu_select_a = 2'b00;
+        load_alu_out = 1'b0; // Load ALU result into register(s) 
+        load_a = 1'b0;
+        load_b = 1'b0;
+        load_c = 1'b0;
+        load_x = 1'b0;
+        load_r = 1'b0; // Load ALU result to output
+        alu_select_a = 2'b00; // Which register to load into ALU
         alu_select_b = 2'b00;
-        alu_op       = 1'b0;
+        alu_op       = 1'b0; //ALU multiplies if 1
 
         case (current_state)
             S_LOAD_A: begin
-                ld_a = 1'b1;
+                load_a = 1'b1;
                 end
             S_LOAD_B: begin
-                ld_b = 1'b1;
+                load_b = 1'b1;
                 end
             S_LOAD_C: begin
-                ld_c = 1'b1;
+                load_c = 1'b1;
                 end
             S_LOAD_X: begin
-                ld_x = 1'b1;
+                load_x = 1'b1;
                 end
+            // TODO: Cx^2 + Bx + A
             S_CYCLE_0: begin // Do A <- A * A 
-                ld_alu_out = 1'b1; ld_a = 1'b1; // store result back into A
+                load_alu_out = 1'b1; load_a = 1'b1; // store result back into A
                 alu_select_a = 2'b00; // Select register A
                 alu_select_b = 2'b00; // Also select register A
                 alu_op = 1'b1; // Do multiply operation
             end
             S_CYCLE_1: begin
-                ld_r = 1'b1; // store result in result register
+                load_r = 1'b1; // store result in result register
                 alu_select_a = 2'b00; // Select register A
                 alu_select_b = 2'b10; // Select register C
                 alu_op = 1'b0; // Do Add operation
@@ -204,15 +207,15 @@ module control_path(
         else
             current_state <= next_state;
     end // state_FFS
-endmodule
+endmodule //control_path
 
 module data_path(
     input clk,
     input resetn,
     input [7:0] data_in,
-    input ld_alu_out, 
-    input ld_x, ld_a, ld_b, ld_c,
-    input ld_r,
+    input load_alu_out, 
+    input load_x, load_a, load_b, load_c,
+    input load_r,
     input alu_op, 
     input [1:0] alu_select_a, alu_select_b,
 
@@ -236,14 +239,14 @@ module data_path(
             x <= 8'd0; 
         end
         else begin
-            if (ld_a)
-                a <= ld_alu_out ? alu_out : data_in; // load alu_out if load_alu_out signal is high, otherwise load from data_in
-            if (ld_b)
-                b <= ld_alu_out ? alu_out : data_in; // load alu_out if load_alu_out signal is high, otherwise load from data_in
-            if (ld_x)
+            if (load_a)
+                a <= load_alu_out ? alu_out : data_in; // load alu_out if load_alu_out signal is high, otherwise load from data_in
+            if (load_b)
+                b <= load_alu_out ? alu_out : data_in; // load alu_out if load_alu_out signal is high, otherwise load from data_in
+            if (load_x)
                 x <= data_in;
 
-            if (ld_c)
+            if (load_c)
                 c <= data_in;
         end
     end
@@ -254,7 +257,7 @@ module data_path(
             data_result <= 8'd0; 
         end
         else 
-            if(ld_r)
+            if(load_r)
                 data_result <= alu_out;
     end
 
@@ -301,7 +304,7 @@ module data_path(
         endcase
     end
     
-endmodule
+endmodule // data_path
 
 
 module hex_decoder(hex_digit, segments);
@@ -328,4 +331,4 @@ module hex_decoder(hex_digit, segments);
             4'hF: segments = 7'b000_1110;   
             default: segments = 7'h7f;
         endcase
-endmodule
+endmodule // hex_decoder
