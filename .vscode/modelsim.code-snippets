@@ -27,5 +27,10 @@
 			"",
 			"$0"
 		]
+	},
+
+	"Waveform Force Command": {
+		"prefix": "force",
+		"body": "force {$1} $0"
 	}
 }

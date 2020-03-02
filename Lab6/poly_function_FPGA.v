@@ -116,7 +116,7 @@ module control_path(
 
     output reg  load_a, load_b, load_c, load_x, load_r,
     output reg  load_alu_out,
-    output reg [1:0]  alu_select_a, alu_select_b,
+    output reg [1:0] alu_select_a, alu_select_b,
     output reg alu_op
     );
 
@@ -130,10 +130,11 @@ module control_path(
                 S_LOAD_C_WAIT   = 4'd5,
                 S_LOAD_X        = 4'd6,
                 S_LOAD_X_WAIT   = 4'd7,
-                S_CYCLE_0       = 4'd8,
-                S_CYCLE_1       = 4'd9,
-                S_CYCLE_2       = 4'd10;
-                // TODO: Add more states
+                S_BX_1          = 4'd8,
+                S_BX_A_2        = 4'd9,
+                S_CX_3          = 4'd10,
+                S_CXX_4         = 4'd11,
+                S_OUT_5         = 4'd12;
     
     // Next state logic aka our state table
     always@(*)
@@ -146,10 +147,15 @@ module control_path(
                 S_LOAD_C: next_state = go ? S_LOAD_C_WAIT : S_LOAD_C; // Loop in current state until value is input
                 S_LOAD_C_WAIT: next_state = go ? S_LOAD_C_WAIT : S_LOAD_X; // Loop in current state until go signal goes low
                 S_LOAD_X: next_state = go ? S_LOAD_X_WAIT : S_LOAD_X; // Loop in current state until value is input
-                S_LOAD_X_WAIT: next_state = go ? S_LOAD_X_WAIT : S_CYCLE_0; // Loop in current state until go signal goes low
-                // TODO: Update this
-                S_CYCLE_0: next_state = S_CYCLE_1;
-                S_CYCLE_1: next_state = S_LOAD_A; // we will be done our two operations, start over after
+                S_LOAD_X_WAIT: next_state = go ? S_LOAD_X_WAIT : S_BX_1; // Loop in current state until go signal goes low
+                
+                // Cycle through all steps of calculating polynomial
+                S_BX_1: next_state = S_BX_A_2;
+                S_BX_A_2: next_state = S_CX_3;
+                S_CX_3: next_state = S_CXX_4;
+                S_CXX_4: next_state = S_OUT_5;
+                // Go back to beginning when done
+                S_OUT_5: next_state = S_LOAD_A;
             default:     next_state = S_LOAD_A;
         endcase
     end // state_table
@@ -182,18 +188,36 @@ module control_path(
             S_LOAD_X: begin
                 load_x = 1'b1;
                 end
-            // TODO: Cx^2 + Bx + A
-            S_CYCLE_0: begin // Do A <- A * A 
-                load_alu_out = 1'b1; load_a = 1'b1; // store result back into A
-                alu_select_a = 2'b00; // Select register A
-                alu_select_b = 2'b00; // Also select register A
+            
+            S_BX_1: begin // Do B <- B * x
+                load_alu_out = 1'b1; load_b = 1'b1; // store result back into B
+                alu_select_a = 2'b01; // Select register B
+                alu_select_b = 2'b11; // Register x
                 alu_op = 1'b1; // Do multiply operation
             end
-            S_CYCLE_1: begin
-                load_r = 1'b1; // store result in result register
-                alu_select_a = 2'b00; // Select register A
-                alu_select_b = 2'b10; // Select register C
-                alu_op = 1'b0; // Do Add operation
+            S_BX_A_2: begin // Do B <- Bx + A
+                load_alu_out = 1; load_b = 1;
+                alu_select_a = 0;
+                alu_select_b = 1;
+                alu_op = 0; // Addition
+            end
+            S_CX_3: begin // Do A <- C * x
+                load_alu_out = 1; load_a = 1;
+                alu_select_a = 2;
+                alu_select_b = 3;
+                alu_op = 1; 
+            end
+            S_CXX_4: begin // Do A <- C * x * x
+                load_alu_out = 1; load_a = 1;
+                alu_select_a = 0;
+                alu_select_b = 3;
+                alu_op = 1; 
+            end
+            S_OUT_5: begin // Output R_a = Cx^2 + R_b = Bx + A
+                load_r = 1;
+                alu_select_a = 0;
+                alu_select_b = 1;
+                alu_op = 0;
             end
         // default:    // don't need default since we already made sure all of our outputs were assigned a value at the start of the always block
         endcase

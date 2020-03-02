@@ -8,18 +8,124 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/Public/CSC258_Lab_Code/Lab6
+vcontrol_path
+Z1 !s110 1583177312
+!i10b 1
+!s100 Iem[V0??Nn4`THIMKf4]g0
+IIBlBZaEol:J5fJSHW9OJz0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1583168307
+Z4 8poly_function_FPGA.v
+Z5 Fpoly_function_FPGA.v
+L0 112
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1583177312.000000
+Z8 !s107 poly_function_FPGA.v|
+Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|poly_function_FPGA.v|
+!i113 1
+Z10 o-timescale 1ns/1ns
+Z11 tCvgOpt 0
+vdata_path
+R1
+!i10b 1
+!s100 h3XDWXLZES@K:KF@Hj04n1
+Ij^O8[dhjDUa9HFncIKX=V3
+R2
+R0
+R3
+R4
+R5
+L0 236
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vhex_decoder
+R1
+!i10b 1
+!s100 >L31cdH15m][g;1b9:9V41
+IWUiDRJcTZLX4cARNf6CN]3
+R2
+R0
+R3
+R4
+R5
+L0 334
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vpoly_function
+R1
+!i10b 1
+!s100 `9HM@H:^kO=[l7T<KTN`?1
+IJS^]iXlX4G3zF2AeE;AHR0
+R2
+R0
+R3
+R4
+R5
+L0 52
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vpoly_function_FPGA
+R1
+!i10b 1
+!s100 adA5Qk7MnDoMUU<D0I=Po3
+I;QnHPWVNT<R7K?I^1gSO<0
+R2
+R0
+R3
+R4
+R5
+L0 16
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+npoly_function_@f@p@g@a
 vsequence_detector
 !s110 1583022995
 !i10b 1
 !s100 2AhL8NV9=3ibgH6eL6i5M1
 IT_1^Fb=L`VfGA8<bNzJ=f1
-VDg1SIo80bB@j0V0VzS_@n1
+R2
 R0
 w1583021857
 8sequence_detector.v
 Fsequence_detector.v
 L0 9
-OV;L;10.5b;63
+R6
 r1
 !s85 0
 31
@@ -27,5 +133,5 @@ r1
 !s107 sequence_detector.v|
 !s90 -reportprogress|300|-timescale|1ns/1ns|sequence_detector.v|
 !i113 1
-o-timescale 1ns/1ns
-tCvgOpt 0
+R10
+R11
