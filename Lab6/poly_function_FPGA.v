@@ -139,23 +139,23 @@ module control_path(
     // Next state logic aka our state table
     always@(*)
     begin: state_table 
-            case (current_state)
-                S_LOAD_A: next_state = go ? S_LOAD_A_WAIT : S_LOAD_A; // Loop in current state until value is input
-                S_LOAD_A_WAIT: next_state = go ? S_LOAD_A_WAIT : S_LOAD_B; // Loop in current state until go signal goes low
-                S_LOAD_B: next_state = go ? S_LOAD_B_WAIT : S_LOAD_B; // Loop in current state until value is input
-                S_LOAD_B_WAIT: next_state = go ? S_LOAD_B_WAIT : S_LOAD_C; // Loop in current state until go signal goes low
-                S_LOAD_C: next_state = go ? S_LOAD_C_WAIT : S_LOAD_C; // Loop in current state until value is input
-                S_LOAD_C_WAIT: next_state = go ? S_LOAD_C_WAIT : S_LOAD_X; // Loop in current state until go signal goes low
-                S_LOAD_X: next_state = go ? S_LOAD_X_WAIT : S_LOAD_X; // Loop in current state until value is input
-                S_LOAD_X_WAIT: next_state = go ? S_LOAD_X_WAIT : S_BX_1; // Loop in current state until go signal goes low
-                
-                // Cycle through all steps of calculating polynomial
-                S_BX_1: next_state = S_BX_A_2;
-                S_BX_A_2: next_state = S_CX_3;
-                S_CX_3: next_state = S_CXX_4;
-                S_CXX_4: next_state = S_OUT_5;
-                // Go back to beginning when done
-                S_OUT_5: next_state = S_LOAD_A;
+        case (current_state)
+            S_LOAD_A: next_state = go ? S_LOAD_A_WAIT : S_LOAD_A; // Loop in current state until value is input
+            S_LOAD_A_WAIT: next_state = go ? S_LOAD_A_WAIT : S_LOAD_B; // Loop in current state until go signal goes low
+            S_LOAD_B: next_state = go ? S_LOAD_B_WAIT : S_LOAD_B; // Loop in current state until value is input
+            S_LOAD_B_WAIT: next_state = go ? S_LOAD_B_WAIT : S_LOAD_C; // Loop in current state until go signal goes low
+            S_LOAD_C: next_state = go ? S_LOAD_C_WAIT : S_LOAD_C; // Loop in current state until value is input
+            S_LOAD_C_WAIT: next_state = go ? S_LOAD_C_WAIT : S_LOAD_X; // Loop in current state until go signal goes low
+            S_LOAD_X: next_state = go ? S_LOAD_X_WAIT : S_LOAD_X; // Loop in current state until value is input
+            S_LOAD_X_WAIT: next_state = go ? S_LOAD_X_WAIT : S_BX_1; // Loop in current state until go signal goes low
+            
+            // Cycle through all steps of calculating polynomial
+            S_BX_1: next_state = S_BX_A_2;
+            S_BX_A_2: next_state = S_CX_3;
+            S_CX_3: next_state = S_CXX_4;
+            S_CXX_4: next_state = S_OUT_5;
+            // Go back to beginning when done
+            S_OUT_5: next_state = S_LOAD_A;
             default:     next_state = S_LOAD_A;
         endcase
     end // state_table
@@ -251,7 +251,7 @@ module data_path(
 
     // output of the alu
     reg [7:0] alu_out;
-    // alu input muxes
+    // alu inputs
     reg [7:0] alu_a, alu_b;
     
     // Registers a, b, c, x with respective input logic

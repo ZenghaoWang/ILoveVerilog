@@ -1,0 +1,94 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Public/CSC258_Lab_Code/Lab7/part2
+vcontrol
+Z1 !s110 1583862687
+!i10b 1
+!s100 UU7lM^Fc3=49X@<d5>N[c3
+I0[D2I;89Pl^4L_>Kbb_FJ1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1583862677
+Z4 8part2.v
+Z5 Fpart2.v
+L0 203
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1583862686.000000
+Z8 !s107 part2.v|
+Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|part2.v|
+!i113 1
+Z10 o-timescale 1ns/1ns
+Z11 tCvgOpt 0
+vdatapath
+R1
+!i10b 1
+!s100 [4QC]N2;_9:hGKfSRC2CS2
+IzA@IHbgdQB^L@09c3KQR:0
+R2
+R0
+R3
+R4
+R5
+L0 137
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vpart2
+R1
+!i10b 1
+!s100 4iNIz]zE^=7`90LKB:lbc1
+Ioo]g6HS1OiO;WVEM8n6KD3
+R2
+R0
+R3
+R4
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vtest
+R1
+!i10b 1
+!s100 D3M[Bn];]k:Y50KbJ[6^^1
+I[^]F@WdJCc0OQzAF8nhK=0
+R2
+R0
+R3
+R4
+R5
+L0 81
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
